@@ -123,9 +123,9 @@
     <div class="container">
         <!-- Bagian Awal: Judul, Gambar, Tombol Ayo Main!! -->
         <div id="intro">
-            <h1>Selamat Ulang Tahun, Shafa Amanah!</h1>
+            <h1>Selamat Ulang Tahun,   Shafa Amanah!</h1>
             <img src="2.gif" alt="Gambar Ulang Tahun" style="max-width: 300px; border-radius: 10px; margin: 20px 0;">
-            <button onclick="startQuiz()">Oke</button>
+            <button onclick="startQuiz()">Ayo Main</button>
         </div>
         
         <!-- Pertanyaan 1 -->
