@@ -125,7 +125,7 @@
         <div id="intro">
             <h1>Selamat Ulang Tahun,   Shafa Amanah!</h1>
             <img src="2.gif" alt="Gambar Ulang Tahun" style="max-width: 300px; border-radius: 10px; margin: 20px 0;">
-            <button onclick="startQuiz()">Ayo Main</button>
+            <button onclick="startQuiz()">Ayo Main!!</button>
         </div>
         
         <!-- Pertanyaan 1 -->
@@ -156,9 +156,9 @@
         
         <!-- Efek Ledakan dan Pesan Akhir -->
         <div id="celebration" class="hidden">
-            <p class="celebration">Selamat Ulang Tahun!!!</p>
+            <p class="celebration">Selamat Ulang Tahun!!!!</p>
             <p>Semoga hari ini penuh kebahagiaan dan tahun depan lebih baik lagi. Terima kasih atas segalanya!. Cieee yang setahun lagi sweet seventeen :)</p>
-            <p class="from-message">From: [ORANG GILA]</p>
+            <p class="from-message">From: [Orang Gila]</p>
         </div>
     </div>
     
