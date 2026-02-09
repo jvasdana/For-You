@@ -8,7 +8,7 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-image: url('pinkt.jpg'); /* Background gambar pinkt.jpg */
+            background-image: url('hati.html'); /* Background gambar hati.html */
             background-size: cover; /* Memenuhi layar */
             background-position: center; /* Posisi tengah */
             background-repeat: no-repeat; /* Tidak diulang */
