@@ -8,10 +8,7 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-image: url('pinkt.jpg'); /* Background gambar pinkt.jpg */
-            background-size: cover; /* Memenuhi layar */
-            background-position: center; /* Posisi tengah */
-            background-repeat: no-repeat; /* Tidak diulang */
+            background: #ffc0cb; /* Background solid pink dari kode animasi */
             text-align: center;
             margin: 0;
             padding: 0;
@@ -23,6 +20,8 @@
             border-radius: 10px;
             margin: 20px auto;
             max-width: 600px;
+            position: relative; /* Agar di atas animasi background */
+            z-index: 1; /* Pastikan container di depan */
         }
         h1 {
             color: #ff69b4;
@@ -66,6 +65,7 @@
             background-color: red;
             border-radius: 50%;
             animation: explode 2s ease-out forwards;
+            z-index: 2; /* Di atas animasi background */
         }
         @keyframes explode {
             0% { transform: scale(1); opacity: 1; }
@@ -116,6 +116,45 @@
             font-size: 1.5em;
             color: #333;
             margin-top: 10px;
+        }
+        
+        /* Animasi dari kode kamu: Garis vertikal */
+        .line {
+            position: absolute;
+            width: 2px;
+            height: 100vh;
+            background: linear-gradient(
+                to bottom,
+                rgba(255, 105, 180, 0),
+                rgba(255, 105, 180, 0.4),
+                rgba(255, 105, 180, 0)
+            );
+            animation: moveLine linear infinite;
+            z-index: 0; /* Di belakang container */
+        }
+        @keyframes moveLine {
+            from { transform: translateY(-100vh); }
+            to { transform: translateY(100vh); }
+        }
+        
+        /* Animasi dari kode kamu: Hati jatuh */
+        .heart {
+            position: absolute;
+            color: #ff4d88;
+            font-size: 24px;
+            animation: fall linear infinite;
+            opacity: 0.8;
+            z-index: 0; /* Di belakang container */
+        }
+        @keyframes fall {
+            0% {
+                transform: translateY(-10vh);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(110vh);
+                opacity: 0;
+            }
         }
     </style>
 </head>
@@ -213,6 +252,37 @@
                 setTimeout(() => firework.remove(), 2000);
             }
         }
+        
+        // Script dari kode kamu: Garis vertikal
+        function createLine() {
+            const line = document.createElement("div");
+            line.className = "line";
+            line.style.left = Math.random() * 100 + "vw";
+            line.style.animationDuration = (4 + Math.random() * 6) + "s";
+            document.body.appendChild(line);
+            
+            setTimeout(() => {
+                line.remove();
+            }, 10000);
+        }
+        
+        // Script dari kode kamu: Hati jatuh
+        function createHeart() {
+            const heart = document.createElement("div");
+            heart.className = "heart";
+            heart.innerHTML = "❤";
+            heart.style.left = Math.random() * 100 + "vw";
+            heart.style.animationDuration = (3 + Math.random() * 5) + "s";
+            heart.style.fontSize = (16 + Math.random() * 30) + "px";
+            document.body.appendChild(heart);
+            
+            setTimeout(() => {
+                heart.remove();
+            }, 8000);
+        }
+        
+        setInterval(createLine, 400);
+        setInterval(createHeart, 200);
     </script>
 </body>
 </html>
