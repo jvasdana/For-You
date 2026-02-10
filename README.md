@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
@@ -157,6 +156,34 @@
                 opacity: 0;
             }
         }
+        
+        /* Animasi Baru: Kucing muncul di pinggir */
+        .cat {
+            position: absolute;
+            font-size: 30px;
+            animation: catJump linear infinite;
+            opacity: 0.9;
+            z-index: 0; /* Di belakang container */
+        }
+        @keyframes catJump {
+            0% {
+                transform: translateX(0) translateY(0) scale(1);
+                opacity: 1;
+            }
+            25% {
+                transform: translateX(20vw) translateY(-10vh) scale(1.1);
+            }
+            50% {
+                transform: translateX(40vw) translateY(0) scale(1);
+            }
+            75% {
+                transform: translateX(60vw) translateY(-5vh) scale(1.1);
+            }
+            100% {
+                transform: translateX(80vw) translateY(0) scale(1);
+                opacity: 0;
+            }
+        }
     </style>
 </head>
 <body>
@@ -282,8 +309,24 @@
             }, 8000);
         }
         
+        // Script Baru: Kucing muncul di pinggir
+        function createCat() {
+            const cat = document.createElement("div");
+            cat.className = "cat";
+            cat.innerHTML = "🐱"; // Emoji kucing, bisa ganti ke gambar jika mau
+            cat.style.left = Math.random() < 0.5 ? "-10vw" : "110vw"; // Mulai dari kiri atau kanan
+            cat.style.bottom = Math.random() * 50 + "vh"; // Posisi vertikal acak
+            cat.style.animationDuration = (2 + Math.random() * 3) + "s"; // Durasi acak
+            document.body.appendChild(cat);
+            
+            setTimeout(() => {
+                cat.remove();
+            }, 5000); // Hilang setelah 5 detik
+        }
+        
         setInterval(createLine, 400);
         setInterval(createHeart, 200);
+        setInterval(createCat, 1000 + Math.random() * 1000); // Kucing muncul setiap 1-2 detik acak
     </script>
 </body>
 </html>
