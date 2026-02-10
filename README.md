@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
@@ -8,7 +9,7 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background: #ffc0cb; /* Background solid pink dari kode animasi */
+            background: #ffc0cb url('pinkt.jpg') no-repeat center center / cover; /* Gabungan: solid pink + gambar pinkt.jpg */
             text-align: center;
             margin: 0;
             padding: 0;
@@ -118,7 +119,7 @@
             margin-top: 10px;
         }
         
-        /* Animasi dari kode kamu: Garis vertikal */
+        /* Animasi: Garis vertikal */
         .line {
             position: absolute;
             width: 2px;
@@ -137,7 +138,7 @@
             to { transform: translateY(100vh); }
         }
         
-        /* Animasi dari kode kamu: Hati jatuh */
+        /* Animasi: Hati jatuh */
         .heart {
             position: absolute;
             color: #ff4d88;
@@ -231,7 +232,7 @@
                         setTimeout(() => {
                             const birthdaySong = new Audio('hbdeee.mp3');
                             birthdaySong.play();
-                        }, 2000); // 1 detik setelah ledakan
+                        }, 2000); // 2 detik setelah ledakan
                         // Tampilkan pesan akhir
                         document.getElementById('celebration').classList.remove('hidden');
                     }, 3000); // 3 detik untuk pesan WOW
@@ -253,7 +254,7 @@
             }
         }
         
-        // Script dari kode kamu: Garis vertikal
+        // Script: Garis vertikal
         function createLine() {
             const line = document.createElement("div");
             line.className = "line";
@@ -266,7 +267,7 @@
             }, 10000);
         }
         
-        // Script dari kode kamu: Hati jatuh
+        // Script: Hati jatuh
         function createHeart() {
             const heart = document.createElement("div");
             heart.className = "heart";
