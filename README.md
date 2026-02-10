@@ -43,17 +43,81 @@
             width: 100px;
             text-align: center;
         }
-        button {
+        /* Tombol Imut Berbeda-Beda */
+        .btn-start {
             font-size: 1.2em;
-            padding: 10px 20px;
+            padding: 15px 30px;
             background-color: #ff69b4;
             color: white;
             border: none;
+            border-radius: 50px; /* Bulat */
             cursor: pointer;
-            margin-top: 10px;
+            box-shadow: 0 4px 8px rgba(255, 105, 180, 0.3);
+            transition: all 0.3s ease;
         }
-        button:hover {
+        .btn-start:hover {
             background-color: #ff1493;
+            transform: scale(1.1);
+        }
+        .btn-answer {
+            font-size: 1.2em;
+            padding: 10px 20px;
+            background-color: #32cd32;
+            color: white;
+            border: none;
+            border-radius: 20px; /* Oval */
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(50, 205, 50, 0.3);
+            transition: all 0.3s ease;
+        }
+        .btn-answer:hover {
+            background-color: #228b22;
+            transform: scale(1.05);
+        }
+        .btn-oh-yaa {
+            font-size: 1.2em;
+            padding: 12px 25px;
+            background-color: #ffd700;
+            color: #333;
+            border: none;
+            border-radius: 30px; /* Bulat panjang */
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(255, 215, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+        .btn-oh-yaa:hover {
+            background-color: #ffed4e;
+            transform: scale(1.1);
+        }
+        .btn-mau {
+            font-size: 1.2em;
+            padding: 10px 20px;
+            background-color: #ff4500;
+            color: white;
+            border: none;
+            border-radius: 15px; /* Sudut bulat */
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(255, 69, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+        .btn-mau:hover {
+            background-color: #dc143c;
+            transform: scale(1.05);
+        }
+        .btn-tidak {
+            font-size: 1.2em;
+            padding: 10px 20px;
+            background-color: #1e90ff;
+            color: white;
+            border: none;
+            border-radius: 25px; /* Oval panjang */
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(30, 144, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+        .btn-tidak:hover {
+            background-color: #0066cc;
+            transform: scale(1.05);
         }
         .hidden {
             display: none;
@@ -117,6 +181,18 @@
             color: #333;
             margin-top: 10px;
         }
+        .gift-question {
+            font-family: 'Fredoka One', cursive; /* Font imut untuk pertanyaan hadiah */
+            font-size: 2em;
+            color: #ff69b4;
+            margin: 20px 0;
+        }
+        .gift-message {
+            font-family: 'Fredoka One', cursive; /* Font imut untuk pesan hadiah */
+            font-size: 1.8em;
+            color: #333;
+            margin: 20px 0;
+        }
         
         /* Animasi: Garis vertikal */
         .line {
@@ -137,8 +213,8 @@
             to { transform: translateY(100vh); }
         }
         
-        /* Animasi: Hati jatuh */
-        .heart {
+        /* Animasi: Bunga jatuh */
+        .flower {
             position: absolute;
             color: #ff4d88;
             font-size: 24px;
@@ -157,32 +233,13 @@
             }
         }
         
-        /* Animasi Baru: Kucing muncul di pinggir */
+        /* Animasi: Kucing jatuh */
         .cat {
             position: absolute;
             font-size: 30px;
-            animation: catJump linear infinite;
+            animation: fall linear infinite;
             opacity: 0.9;
             z-index: 0; /* Di belakang container */
-        }
-        @keyframes catJump {
-            0% {
-                transform: translateX(0) translateY(0) scale(1);
-                opacity: 1;
-            }
-            25% {
-                transform: translateX(20vw) translateY(-10vh) scale(1.1);
-            }
-            50% {
-                transform: translateX(40vw) translateY(0) scale(1);
-            }
-            75% {
-                transform: translateX(60vw) translateY(-5vh) scale(1.1);
-            }
-            100% {
-                transform: translateX(80vw) translateY(0) scale(1);
-                opacity: 0;
-            }
         }
     </style>
 </head>
@@ -192,28 +249,28 @@
         <div id="intro">
             <h1>Selamat Ulang Tahun, Shafa Amanah!!!</h1>
             <img src="2.gif" alt="Gambar Ulang Tahun" style="max-width: 300px; border-radius: 10px; margin: 20px 0;">
-            <button onclick="startQuiz()">Ayo Main!!</button>
+            <button class="btn-start" onclick="startQuiz()">Ayo Main!!</button>
         </div>
         
         <!-- Pertanyaan 1 -->
         <div id="q1" class="hidden">
             <p class="question">1 + 1 = ?</p>
             <input type="number" id="ans1">
-            <button onclick="checkAnswer(1, 2)">Jawab</button>
+            <button class="btn-answer" onclick="checkAnswer(1, 2)">Jawab</button>
         </div>
         
         <!-- Pertanyaan 2 -->
         <div id="q2" class="hidden">
             <p class="question">2 x 2 = ?</p>
             <input type="number" id="ans2">
-            <button onclick="checkAnswer(2, 4)">Jawab</button>
+            <button class="btn-answer" onclick="checkAnswer(2, 4)">Jawab</button>
         </div>
         
         <!-- Pertanyaan 3 -->
         <div id="q3" class="hidden">
             <p class="question">4 x 4 = ?</p>
             <input type="number" id="ans3">
-            <button onclick="checkAnswer(3, 16)">Jawab</button>
+            <button class="btn-answer" onclick="checkAnswer(3, 16)">Jawab</button>
         </div>
         
         <!-- Pesan Imut Setelah 16 -->
@@ -226,6 +283,19 @@
             <p class="celebration">Selamat Ulang Tahun!!!</p>
             <p>Semoga hari ini penuh kebahagiaan dan tahun depan lebih baik lagi. Terima kasih atas segalanya!</p>
             <p class="from-message">Dari: [Orang Gila]</p>
+            <button class="btn-oh-yaa" onclick="showGiftQuestion()">Oh yaa!!</button>
+        </div>
+        
+        <!-- Pertanyaan Hadiah -->
+        <div id="gift-question" class="hidden">
+            <p class="gift-question">Mau hadiah gak??</p>
+            <button class="btn-mau" onclick="showGiftMessage(true)">Mau</button>
+            <button class="btn-tidak" onclick="showGiftMessage(false)">Tidak</button>
+        </div>
+        
+        <!-- Pesan Hadiah Akhir -->
+        <div id="gift-message" class="hidden">
+            <p class="gift-message" id="final-message"></p>
         </div>
     </div>
     
@@ -281,6 +351,22 @@
             }
         }
         
+        function showGiftQuestion() {
+            document.getElementById('celebration').classList.add('hidden');
+            document.getElementById('gift-question').classList.remove('hidden');
+        }
+        
+        function showGiftMessage(wantsGift) {
+            document.getElementById('gift-question').classList.add('hidden');
+            const messageElement = document.getElementById('final-message');
+            if (wantsGift) {
+                messageElement.innerHTML = "oke!!:) DM gua aja yaa. Gua emng dah mikir hadiah nya dari november kemaren:)";
+            } else {
+                messageElement.innerHTML = "Ouu oke semangat belajarnya ya! Jangan lupa istirahat dan jaga kesehatan. Kamu pasti bisa!";
+            }
+            document.getElementById('gift-message').classList.remove('hidden');
+        }
+        
         // Script: Garis vertikal
         function createLine() {
             const line = document.createElement("div");
@@ -294,39 +380,39 @@
             }, 10000);
         }
         
-        // Script: Hati jatuh
-        function createHeart() {
-            const heart = document.createElement("div");
-            heart.className = "heart";
-            heart.innerHTML = "❤";
-            heart.style.left = Math.random() * 100 + "vw";
-            heart.style.animationDuration = (3 + Math.random() * 5) + "s";
-            heart.style.fontSize = (16 + Math.random() * 30) + "px";
-            document.body.appendChild(heart);
+        // Script: Bunga jatuh
+        function createFlower() {
+            const flower = document.createElement("div");
+            flower.className = "flower";
+            flower.innerHTML = "🌸"; // Emoji bunga
+            flower.style.left = Math.random() * 100 + "vw";
+            flower.style.animationDuration = (1 + Math.random() * 2) + "s"; // Durasi cepat: 1-3 detik
+            flower.style.fontSize = (16 + Math.random() * 30) + "px";
+            document.body.appendChild(flower);
             
             setTimeout(() => {
-                heart.remove();
-            }, 8000);
+                flower.remove();
+            }, 3000); // Hilang cepat: 3 detik
         }
         
-        // Script Baru: Kucing muncul di pinggir
+        // Script: Kucing jatuh
         function createCat() {
             const cat = document.createElement("div");
             cat.className = "cat";
-            cat.innerHTML = "🐱"; // Emoji kucing, bisa ganti ke gambar jika mau
-            cat.style.left = Math.random() < 0.5 ? "-10vw" : "110vw"; // Mulai dari kiri atau kanan
-            cat.style.bottom = Math.random() * 50 + "vh"; // Posisi vertikal acak
-            cat.style.animationDuration = (2 + Math.random() * 3) + "s"; // Durasi acak
+            cat.innerHTML = "🐱"; // Emoji kucing
+            cat.style.left = Math.random() * 100 + "vw"; // Posisi horizontal acak
+            cat.style.animationDuration = (1 + Math.random() * 2) + "s"; // Durasi cepat: 1-3 detik
+            cat.style.fontSize = (20 + Math.random() * 20) + "px"; // Ukuran acak
             document.body.appendChild(cat);
             
             setTimeout(() => {
                 cat.remove();
-            }, 5000); // Hilang setelah 5 detik
+            }, 3000); // Hilang cepat: 3 detik
         }
         
         setInterval(createLine, 400);
-        setInterval(createHeart, 200);
-        setInterval(createCat, 1000 + Math.random() * 1000); // Kucing muncul setiap 1-2 detik acak
+        setInterval(createFlower, 100); // Bunga jatuh cepat dan sering
+        setInterval(createCat, 100); // Kucing jatuh cepat dan sering
     </script>
 </body>
 </html>
