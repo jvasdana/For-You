@@ -2,7 +2,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Selamat Ulang Tahun!</title>
+    <title>Selamat Ulang Tahun!!!</title>
     <!-- Import Google Font untuk font lucu -->
     <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
     <style>
@@ -360,7 +360,7 @@
             document.getElementById('gift-question').classList.add('hidden');
             const messageElement = document.getElementById('final-message');
             if (wantsGift) {
-                messageElement.innerHTML = "oke!!:) DM gua aja yaa. Gua emng dah mikir hadiah nya dari november kemaren:)";
+                messageElement.innerHTML = "oke!!:) DM gua pake emot 🎁";
             } else {
                 messageElement.innerHTML = "Ouu oke semangat belajarnya ya! Jangan lupa istirahat dan jaga kesehatan. Kamu pasti bisa!";
             }
@@ -386,7 +386,7 @@
             flower.className = "flower";
             flower.innerHTML = "🌸"; // Emoji bunga
             flower.style.left = Math.random() * 100 + "vw";
-            flower.style.animationDuration = (1 + Math.random() * 2) + "s"; // Durasi cepat: 1-3 detik
+            flower.style.animationDuration = (1 + Math.random() * 2) + "s"; // Durasi cepat: 1-6 detik
             flower.style.fontSize = (16 + Math.random() * 30) + "px";
             document.body.appendChild(flower);
             
@@ -401,7 +401,7 @@
             cat.className = "cat";
             cat.innerHTML = "🐱"; // Emoji kucing
             cat.style.left = Math.random() * 100 + "vw"; // Posisi horizontal acak
-            cat.style.animationDuration = (1 + Math.random() * 2) + "s"; // Durasi cepat: 1-3 detik
+            cat.style.animationDuration = (1 + Math.random() * 2) + "s"; // Durasi cepat: 1-6 detik
             cat.style.fontSize = (20 + Math.random() * 20) + "px"; // Ukuran acak
             document.body.appendChild(cat);
             
