@@ -233,7 +233,7 @@
             }
         }
         
-        /* Animasi: Love jatuh */
+        /* Animasi: Love jatuh (ganti dari kucing) */
         .love {
             position: absolute;
             font-size: 30px;
@@ -249,14 +249,14 @@
         <div id="intro">
             <h1>Selamat Ulang Tahun, Shafa Amanah!!!</h1>
             <img src="2.gif" alt="Gambar Ulang Tahun" style="max-width: 300px; border-radius: 10px; margin: 20px 0;">
-            <button class="btn-start" onclick="playClickSound(); startQuiz()">Ayo Main!!</button>
+            <button class="btn-start" onclick="startQuiz()">Ayo Main!!</button>
         </div>
         
         <!-- Pertanyaan 1 -->
         <div id="q1" class="hidden">
             <p class="question">1 + 1 = ?</p>
             <input type="number" id="ans1">
-            <button class="btn-answer" onclick="playClickSound(); checkAnswer(1, 2)">Jawab</button>
+            <button class="btn-answer" onclick="checkAnswer(1, 2)">Jawab</button>
         </div>
         
         <!-- Pertanyaan 2 -->
@@ -283,14 +283,14 @@
             <p class="celebration">Selamat Ulang Tahun!!!</p>
             <p>Semoga hari ini penuh kebahagiaan dan tahun depan lebih baik lagi. Terima kasih atas segalanya!</p>
             <p class="from-message">Dari: [Orang Gila]</p>
-            <button class="btn-oh-yaa" onclick="playClickSound(); showGiftQuestion()">Oh yaa!!</button>
+            <button class="btn-oh-yaa" onclick="showGiftQuestion()">Oh yaa!!</button>
         </div>
         
         <!-- Pertanyaan Hadiah -->
         <div id="gift-question" class="hidden">
             <p class="gift-question">Mau hadiah gak??</p>
-            <button class="btn-mau" onclick="playClickSound(); showGiftMessage(true)">Mau</button>
-            <button class="btn-tidak" onclick="playClickSound(); showGiftMessage(false)">Tidak</button>
+            <button class="btn-mau" onclick="showGiftMessage(true)">Mau</button>
+            <button class="btn-tidak" onclick="showGiftMessage(false)">Tidak</button>
         </div>
         
         <!-- Pesan Hadiah Akhir -->
@@ -302,21 +302,11 @@
     <script>
         let currentQuestion = 1;
         
-        // Suara awal: teriak.mp3 lalu haha.mp3
+        // Suara awal saat halaman load
         window.onload = function() {
             const screamSound = new Audio('teriak.mp3');
             screamSound.play();
-            screamSound.onended = function() {
-                const hahaSound = new Audio('haha.mp3');
-                hahaSound.play();
-            };
         };
-        
-        // Fungsi suara klik tombol
-        function playClickSound() {
-            const clickSound = new Audio('klik.mp3');
-            clickSound.play();
-        }
         
         function startQuiz() {
             document.getElementById('intro').classList.add('hidden');
@@ -411,7 +401,7 @@
             }, 5000); // Hilang pelan: 5 detik
         }
         
-        // Script: Love jatuh (pelan)
+        // Script: Love jatuh (ganti dari kucing, pelan)
         function createLove() {
             const love = document.createElement("div");
             love.className = "love";
@@ -422,4 +412,5 @@
             document.body.appendChild(love);
             
             setTimeout(() => {
-                love
+                love.remove();
+            }, 5000); // Hilang pelan
