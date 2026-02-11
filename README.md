@@ -233,8 +233,8 @@
             }
         }
         
-        /* Animasi: Kucing jatuh */
-        .cat {
+        /* Animasi: Love jatuh */
+        .love {
             position: absolute;
             font-size: 30px;
             animation: fall linear infinite;
@@ -249,14 +249,14 @@
         <div id="intro">
             <h1>Selamat Ulang Tahun, Shafa Amanah!!!</h1>
             <img src="2.gif" alt="Gambar Ulang Tahun" style="max-width: 300px; border-radius: 10px; margin: 20px 0;">
-            <button class="btn-start" onclick="startQuiz()">Ayo Main!!</button>
+            <button class="btn-start" onclick="playClickSound(); startQuiz()">Ayo Main!!</button>
         </div>
         
         <!-- Pertanyaan 1 -->
         <div id="q1" class="hidden">
             <p class="question">1 + 1 = ?</p>
             <input type="number" id="ans1">
-            <button class="btn-answer" onclick="checkAnswer(1, 2)">Jawab</button>
+            <button class="btn-answer" onclick="playClickSound(); checkAnswer(1, 2)">Jawab</button>
         </div>
         
         <!-- Pertanyaan 2 -->
@@ -283,14 +283,14 @@
             <p class="celebration">Selamat Ulang Tahun!!!</p>
             <p>Semoga hari ini penuh kebahagiaan dan tahun depan lebih baik lagi. Terima kasih atas segalanya!</p>
             <p class="from-message">Dari: [Orang Gila]</p>
-            <button class="btn-oh-yaa" onclick="showGiftQuestion()">Oh yaa!!</button>
+            <button class="btn-oh-yaa" onclick="playClickSound(); showGiftQuestion()">Oh yaa!!</button>
         </div>
         
         <!-- Pertanyaan Hadiah -->
         <div id="gift-question" class="hidden">
             <p class="gift-question">Mau hadiah gak??</p>
-            <button class="btn-mau" onclick="showGiftMessage(true)">Mau</button>
-            <button class="btn-tidak" onclick="showGiftMessage(false)">Tidak</button>
+            <button class="btn-mau" onclick="playClickSound(); showGiftMessage(true)">Mau</button>
+            <button class="btn-tidak" onclick="playClickSound(); showGiftMessage(false)">Tidak</button>
         </div>
         
         <!-- Pesan Hadiah Akhir -->
@@ -301,6 +301,22 @@
     
     <script>
         let currentQuestion = 1;
+        
+        // Suara awal: teriak.mp3 lalu haha.mp3
+        window.onload = function() {
+            const screamSound = new Audio('teriak.mp3');
+            screamSound.play();
+            screamSound.onended = function() {
+                const hahaSound = new Audio('haha.mp3');
+                hahaSound.play();
+            };
+        };
+        
+        // Fungsi suara klik tombol
+        function playClickSound() {
+            const clickSound = new Audio('klik.mp3');
+            clickSound.play();
+        }
         
         function startQuiz() {
             document.getElementById('intro').classList.add('hidden');
@@ -360,9 +376,9 @@
             document.getElementById('gift-question').classList.add('hidden');
             const messageElement = document.getElementById('final-message');
             if (wantsGift) {
-                messageElement.innerHTML = "oke!!:) DM gua pake emot 🎁";
+                messageElement.innerHTML = "oke!!:) DM gua pake emoji🎁";
             } else {
-                messageElement.innerHTML = "Ouu oke semangat belajarnya ya! Jangan lupa istirahat dan jaga kesehatan. Kamu pasti bisa!";
+                messageElement.innerHTML = "Ouu oke semangat belajarnya ya! Jangan mokel!!";
             }
             document.getElementById('gift-message').classList.remove('hidden');
         }
@@ -380,39 +396,30 @@
             }, 10000);
         }
         
-        // Script: Bunga jatuh
+        // Script: Bunga jatuh (pelan)
         function createFlower() {
             const flower = document.createElement("div");
             flower.className = "flower";
             flower.innerHTML = "🌸"; // Emoji bunga
             flower.style.left = Math.random() * 100 + "vw";
-            flower.style.animationDuration = (1 + Math.random() * 2) + "s"; // Durasi cepat: 1-6 detik
+            flower.style.animationDuration = (3 + Math.random() * 2) + "s"; // Durasi pelan: 3-5 detik
             flower.style.fontSize = (16 + Math.random() * 30) + "px";
             document.body.appendChild(flower);
             
             setTimeout(() => {
                 flower.remove();
-            }, 3000); // Hilang cepat: 3 detik
+            }, 5000); // Hilang pelan: 5 detik
         }
         
-        // Script: Kucing jatuh
-        function createCat() {
-            const cat = document.createElement("div");
-            cat.className = "cat";
-            cat.innerHTML = "🐱"; // Emoji kucing
-            cat.style.left = Math.random() * 100 + "vw"; // Posisi horizontal acak
-            cat.style.animationDuration = (1 + Math.random() * 2) + "s"; // Durasi cepat: 1-6 detik
-            cat.style.fontSize = (20 + Math.random() * 20) + "px"; // Ukuran acak
-            document.body.appendChild(cat);
+        // Script: Love jatuh (pelan)
+        function createLove() {
+            const love = document.createElement("div");
+            love.className = "love";
+            love.innerHTML = "❤"; // Emoji love
+            love.style.left = Math.random() * 100 + "vw"; // Posisi horizontal acak
+            love.style.animationDuration = (3 + Math.random() * 2) + "s"; // Durasi pelan: 3-5 detik
+            love.style.fontSize = (20 + Math.random() * 20) + "px"; // Ukuran acak
+            document.body.appendChild(love);
             
             setTimeout(() => {
-                cat.remove();
-            }, 3000); // Hilang cepat: 3 detik
-        }
-        
-        setInterval(createLine, 400);
-        setInterval(createFlower, 100); // Bunga jatuh cepat dan sering
-        setInterval(createCat, 100); // Kucing jatuh cepat dan sering
-    </script>
-</body>
-</html>
+                love
