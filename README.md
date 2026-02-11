@@ -2,7 +2,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Selamat Ulang Tahun!!!</title>
+    <title>Selamat Ulang Tahun!</title>
     <!-- Import Google Font untuk font lucu -->
     <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
     <style>
@@ -376,9 +376,9 @@
             document.getElementById('gift-question').classList.add('hidden');
             const messageElement = document.getElementById('final-message');
             if (wantsGift) {
-                messageElement.innerHTML = "oke!!:) DM gua pake emoji🎁";
+                messageElement.innerHTML = "oke!!:) DM gua aja yaa. Gua emng dah mikir hadiah nya dari november kemaren:)";
             } else {
-                messageElement.innerHTML = "Ouu oke semangat belajarnya ya! Jangan mokel!!";
+                messageElement.innerHTML = "Ouu oke semangat belajarnya ya! Jangan lupa istirahat dan jaga kesehatan. Kamu pasti bisa!";
             }
             document.getElementById('gift-message').classList.remove('hidden');
         }
